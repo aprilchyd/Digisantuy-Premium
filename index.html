@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGISANTUY PREMIUM - Akun Premium Murah </title> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+    
+        /* --- CSS VARIABLES --- */
+        :root {
+            --bg-black: #141414;
+            --bg-card: #1f1f1f;
+            --primary: #E50914;
+            --text-white: #ffffff;
+            --text-gray: #b3b3b3;
+            --shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        /* REVISI: DIGISANTUY PREMIUM JADI BOLD (font-weight: 900) */
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 900; /* Perubahan disini */
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--primary);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            font-size: 0.9rem;
+            color: var(--text-white);
+            transition: color 0.3s;
+        }
+        .nav-menu a:hover { color: var(--text-gray); }
+
+        /* FITUR BARU: CART ICON */
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-left: 20px;
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 80vh;
+            width: 100%;
+            position: relative;
+            background: url('images/hero-banner.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 4%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, var(--bg-black) 10%, transparent 60%);
+        }
+
+        /* REVISI: TAMBAHKAN BACKGROUND PADA TEXT HERO */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin-top: 100px;
+            background: rgba(0, 0, 0, 0.6); /* Background transparan gelap */
+            padding: 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            color: var(--primary);
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px black;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary:hover { background-color: #b2070f; }
+
+        /* --- CATEGORY ROWS --- */
+        .category-section {
+            padding: 40px 4%;
+            position: relative;
+            z-index: 5;
+        }
+
+        .category-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-white);
+            opacity: 0.9;
+        }
+
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding-bottom: 20px;
+            scroll-behavior: smooth;
+        }
+
+        .scroll-container::-webkit-scrollbar { height: 5px; }
+        .scroll-container::-webkit-scrollbar-track { background: transparent; }
+        .scroll-container::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        .scroll-container::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        .card {
+            min-width: 160px;
+            max-width: 160px;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s ease, z-index 0s;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            z-index: 10;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* --- MODAL POPUP (PRODUCT OPTIONS) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #181818;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            padding: 30px;
+            position: relative;
+            border: 1px solid #333;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-gray);
+        }
+        .close-btn:hover { color: white; }
+
+        .modal-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 2px solid var(--primary);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .modal-title { font-size: 1.5rem; margin-bottom: 10px; text-align: center; }
+        .modal-subtitle { color: var(--text-gray); font-size: 0.9rem; margin-bottom: 20px; text-align: center;}
+
+        /* LIST OF PLANS */
+        .plan-list { display: flex; flex-direction: column; gap: 10px; }
+        
+        .plan-item {
+            background: #2f2f2f;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .plan-details h4 { font-size: 0.95rem; margin-bottom: 2px; }
+        .plan-details p { font-size: 0.8rem; color: var(--text-gray); }
+        .plan-price { font-weight: bold; color: var(--primary); font-size: 1rem; margin-right: 10px;}
+
+        .btn-add {
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+        .btn-add:hover { background: var(--primary); border-color: var(--primary); }
+
+        /* --- CART MODAL --- */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            padding: 10px 0;
+        }
+        .btn-checkout {
+            background: #25D366;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+        .btn-checkout:hover { background: #1ebc57; }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            border-top: 1px solid #333;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .brand-name { font-size: 1.1rem; }
+            .hero-title { font-size: 2.5rem; }
+            .card { min-width: 120px; max-width: 120px; }
+            .card-img { height: 180px; }
+            .nav-menu { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="brand-section">
+            <img src="images/logo-digisantuy.jpg" alt="Logo" class="brand-logo">
+            <h1 class="brand-name">DIGISANTUY PREMIUM</h1>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="#streaming">Streaming</a>
+            <a href="#musik">Musik</a>
+            <a href="#ai">AI & Edit</a>
+            <a href="#tools">Tools</a>
+            <!-- Cart Icon -->
+            <div class="cart-icon" onclick="openCartModal()">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">NETFLIX PREMIUM 4K</h1>
+            <p class="hero-desc">Nonton film dan series tanpa batas. Pilih paket sharing atau private sesuai kebutuhanmu.</p>
+            <button class="btn-primary" onclick="openProductModal('netflix')">
+                <i class="fas fa-play"></i> Lihat Paket
+            </button>
+        </div>
+    </section>
+
+    <!-- CATEGORY 1: STREAMING -->
+    <section class="category-section" id="streaming">
+        <h2 class="category-title">Streaming Film & Series</h2>
+        <div class="scroll-container">
+            <!-- Netflix -->
+            <div class="card" onclick="openProductModal('netflix')">
+                <img src="images/netflix-poster.jpg" alt="Netflix" class="card-img">
+                <div class="card-info">Netflix</div>
+            </div>
+            <!-- Disney+ -->
+            <div class="card" onclick="openProductModal('disney')">
+                <img src="images/disney-poster.jpg" alt="Disney" class="card-img">
+                <div class="card-info">Disney+</div>
+            </div>
+            <!-- HBO Max -->
+            <div class="card" onclick="openProductModal('hbo')">
+                <img src="images/hbo-poster.jpg" alt="HBO" class="card-img">
+                <div class="card-info">HBO Max</div>
+            </div>
+            <!-- Vidio -->
+            <div class="card" onclick="openProductModal('vidio')">
+                <img src="images/vidio-poster.jpg" alt="Vidio" class="card-img">
+                <div class="card-info">Vidio</div>
+            </div>
+            <!-- Prime Video -->
+            <div class="card" onclick="openProductModal('prime')">
+                <img src="images/prime-poster.jpg" alt="Prime" class="card-img">
+                <div class="card-info">Prime Video</div>
+            </div>
+             <!-- VIU -->
+             <div class="card" onclick="openProductModal('viu')">
+                <img src="images/viu-poster.jpg" alt="VIU" class="card-img">
+                <div class="card-info">VIU</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY 2: MUSIK -->
+    <section class="category-section" id="musik">
+        <h2 class="category-title">Musik & Buku Digital</h2>
+        <div class="scroll-container">
+            <div class="card" onclick="openProductModal('spotify')">
+                <img src="images/spotify-logo.jpg" alt="Spotify" class="card-img">
+                <div class="card-info">Spotify</div>
+            </div>
+            <div class="card" onclick="openProductModal('apple-music')">
+                <img src="images/apple-music.jpg" alt="Apple Music" class="card-img">
+                <div class="card-info">Apple Music</div>
+            </div>
+             <div class="card" onclick="openProductModal('yt-music')">
+                <img src="images/yt-music.jpg" alt="YT Music" class="card-img">
+                <div class="card-info">YouTube Music</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY 3: AI & EDIT -->
+    <section class="category-section" id="ai">
+        <h2 class="category-title">AI & Editing Kreatif</h2>
+        <div class="scroll-container">
+            <div class="card" onclick="openProductModal('chatgpt')">
+                <img src="images/chatgpt-logo.jpg" alt="ChatGPT" class="card-img">
+                <div class="card-info">ChatGPT</div>
+            </div>
+            <div class="card" onclick="openProductModal('canva')">
+                <img src="images/canva-logo.jpg" alt="Canva" class="card-img">
+                <div class="card-info">Canva</div>
+            </div>
+            <div class="card" onclick="openProductModal('capcut')">
+                <img src="images/capcut-logo.jpg" alt="CapCut" class="card-img">
+                <div class="card-info">CapCut</div>
+            </div>
+            <div class="card" onclick="openProductModal('lightroom')">
+                <img src="images/lightroom-logo.jpg" alt="Lightroom" class="card-img">
+                <div class="card-info">Lightroom</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORY 4: TOOLS -->
+    <section class="category-section" id="tools">
+        <h2 class="category-title">Produktivitas & Tools</h2>
+        <div class="scroll-container">
+            <div class="card" onclick="openProductModal('camscanner')">
+                <img src="images/camscanner-logo.jpg" alt="CamScanner" class="card-img">
+                <div class="card-info">CamScanner</div>
+            </div>
+            <div class="card" onclick="openProductModal('wps')">
+                <img src="images/wps-logo.jpg" alt="WPS" class="card-img">
+                <div class="card-info">WPS Office</div>
+            </div>
+             <div class="card" onclick="openProductModal('ms365')">
+                <img src="images/ms365-logo.jpg" alt="MS365" class="card-img">
+                <div class="card-info">MS365</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 DIGISANTUY PREMIUM. All Rights Reserved.</p>
+        <p>Syarat & Ketentuan | Kebijakan Privasi</p>
+    </footer>
+
+    <!-- PRODUCT OPTIONS MODAL -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('productModal')">&times;</span>
+            <img src="" id="modalImg" class="modal-img" alt="Product">
+            <h3 class="modal-title" id="modalTitle">Judul Produk</h3>
+            <p class="modal-subtitle">Pilih paket yang tersedia:</p>
+            
+            <div class="plan-list" id="planList">
+                <!-- Options will be injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CART MODAL -->
+    <div class="modal-overlay" id="cartModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('cartModal')">&times;</span>
+            <h3 class="modal-title">Keranjang Belanja</h3>
+            <div id="cartItems" style="margin-top: 20px;">
+                <!-- Cart items injected via JS -->
+                <p style="text-align:center; color:#777;">Keranjang masih kosong.</p>
+            </div>
+            <button class="btn-checkout" id="checkoutBtn" onclick="checkout()" style="display:none;">Checkout via WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- DATA PRODUK (OPSI LENGKAP SESUAI PERMINTAAN) ---
+        const products = {
+            netflix: {
+                name: "Netflix",
+                img: "images/netflix-poster.jpg",
+                plans: [
+                    { plan: "Sharing 1P1U", duration: "1 Bulan", price: "Rp 49.000" },
+                    { plan: "Private 1P1U", duration: "1 Bulan", price: "Rp 100.000" },
+                    { plan: "Sharing 1P2U", duration: "1 Tahun", price: "Rp 165.000" },
+                    { plan: "Private 1P1U", duration: "1 Tahun", price: "Rp 200.000" }
+                ]
+            },
+            disney: {
+                name: "Disney+",
+                img: "images/disney-poster.jpg",
+                plans: [
+                    { plan: "Sharing 6U", duration: "1 Bulan", price: "Rp 45.000" },
+                    { plan: "Private", duration: "1 Bulan", price: "Rp 80.000" }
+                ]
+            },
+            hbo: {
+                name: "HBO Max",
+                img: "images/hbo-poster.jpg",
+                plans: [
+                    { plan: "Sharing 1P1U", duration: "1 Bulan", price: "Rp 38.000" },
+                    { plan: "Private 1P1U", duration: "1 Bulan", price: "Rp 90.000" }
+                ]
+            },
+            vidio: {
+                name: "Vidio Platinum",
+                img: "images/vidio-poster.jpg",
+                plans: [
+                    { plan: "Sharing 1P1U", duration: "1 Bulan", price: "Rp 33.000" },
+                    { plan: "Platinum All Dev", duration: "1 Bulan", price: "Rp 45.000" }
+                ]
+            },
+            prime: {
+                name: "Prime Video",
+                img: "images/prime-poster.jpg",
+                plans: [
+                    { plan: "Sharing 4U", duration: "1 Bulan", price: "Rp 26.000" },
+                    { plan: "Private", duration: "1 Bulan", price: "Rp 60.000" }
+                ]
+            },
+            viu: {
+                name: "VIU Premium",
+                img: "images/viu-poster.jpg",
+                plans: [
+                    { plan: "Private", duration: "1 Bulan", price: "Rp 35.000" },
+                    { plan: "Sharing", duration: "1 Bulan", price: "Rp 22.000" }
+                ]
+            },
+            spotify: {
+                name: "Spotify",
+                img: "images/spotify-logo.jpg",
+                plans: [
+                    { plan: "Student Plan", duration: "1 Bulan", price: "Rp 35.000" },
+                    { plan: "Family Plan", duration: "1 Bulan", price: "Rp 57.000" }
+                ]
+            },
+            'apple-music': {
+                name: "Apple Music",
+                img: "images/apple-music.jpg",
+                plans: [
+                    { plan: "Sharing", duration: "1 Bulan", price: "Rp 31.000" },
+                    { plan: "Private", duration: "1 Bulan", price: "Rp 50.000" }
+                ]
+            },
+            'yt-music': {
+                name: "YouTube Music",
+                img: "images/yt-music.jpg",
+                plans: [
+                    { plan: "Family Plan", duration: "2 Bulan", price: "Rp 27.000" }
+                ]
+            },
+            chatgpt: {
+                name: "ChatGPT",
+                img: "images/chatgpt-logo.jpg",
+                plans: [
+                    { plan: "Plan Plus Sharing", duration: "1 Bulan", price: "Rp 30.000" },
+                    { plan: "Plan Plus Private", duration: "1 Bulan", price: "Rp 100.000" },
+                    { plan: "Workspace Invite", duration: "1 Bulan", price: "Rp 30.000" }
+                ]
+            },
+            canva: {
+                name: "Canva",
+                img: "images/canva-logo.jpg",
+                plans: [
+                    { plan: "Member", duration: "1 Bulan", price: "Rp 20.000" },
+                    { plan: "Admin 30D", duration: "30 Hari", price: "Rp 27.000" }
+                ]
+            },
+            capcut: {
+                name: "CapCut",
+                img: "images/capcut-logo.jpg",
+                plans: [
+                    { plan: "Sharing 3U", duration: "1 Bulan", price: "Rp 22.000" },
+                    { plan: "Private", duration: "1 Bulan", price: "Rp 60.000" }
+                ]
+            },
+            lightroom: {
+                name: "Lightroom",
+                img: "images/lightroom-logo.jpg",
+                plans: [
+                    { plan: "Sharing", duration: "1 Tahun", price: "Rp 33.000" }
+                ]
+            },
+            camscanner: {
+                name: "CamScanner",
+                img: "images/camscanner-logo.jpg",
+                plans: [
+                    { plan: "Sharing", duration: "1 Tahun", price: "Rp 35.000" }
+                ]
+            },
+            wps: {
+                name: "WPS Office",
+                img: "images/wps-logo.jpg",
+                plans: [
+                    { plan: "Sharing", duration: "1 Tahun", price: "Rp 50.000" },
+                    { plan: "Private", duration: "1 Tahun", price: "Rp 70.000" }
+                ]
+            },
+            ms365: {
+                name: "Microsoft 365",
+                img: "images/ms365-logo.jpg",
+                plans: [
+                    { plan: "Famplan", duration: "1 Bulan", price: "Rp 53.000" }
+                ]
+            }
+        };
+
+        // --- CART LOGIC ---
+        let cart = [];
+
+        function openProductModal(productId) {
+            const data = products[productId];
+            if(!data) return;
+
+            document.getElementById('modalTitle').innerText = data.name;
+            document.getElementById('modalImg').src = data.img;
+            
+            const planList = document.getElementById('planList');
+            planList.innerHTML = ''; // Reset list
+
+            data.plans.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'plan-item';
+                div.innerHTML = `
+                    <div class="plan-details">
+                        <h4>${item.plan}</h4>
+                        <p>${item.duration}</p>
+                    </div>
+                    <div style="display:flex; align-items:center;">
+                        <span class="plan-price">${item.price}</span>
+                        <button class="btn-add" onclick="addToCart('${data.name}', '${item.plan}', '${item.duration}')">
+                            <i class="fas fa-plus"></i> Beli
+                        </button>
+                    </div>
+                `;
+                planList.appendChild(div);
+            });
+
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function addToCart(name, plan, duration) {
+            // Validasi Max 10 Item
+            if (cart.length >= 10) {
+                alert("Maksimal keranjang belanja adalah 10 produk.");
+                return;
+            }
+
+            cart.push({ name, plan, duration });
+            updateCartBadge();
+            closeModal('productModal');
+            alert("Berhasil ditambahkan ke keranjang!");
+        }
+
+        function updateCartBadge() {
+            document.getElementById('cartCount').innerText = cart.length;
+        }
+
+        function openCartModal() {
+            const cartContainer = document.getElementById('cartItems');
+            cartContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p style="text-align:center; color:#777;">Keranjang masih kosong.</p>';
+                document.getElementById('checkoutBtn').style.display = 'none';
+            } else {
+                cart.forEach((item, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'cart-item';
+                    div.innerHTML = `
+                        <div>
+                            <strong>${item.name}</strong><br>
+                            <small style="color:#bbb">${item.plan} - ${item.duration}</small>
+                        </div>
+                        <i class="fas fa-trash" style="color:red; cursor:pointer;" onclick="removeFromCart(${index})"></i>
+                    `;
+                    cartContainer.appendChild(div);
+                });
+                document.getElementById('checkoutBtn').style.display = 'block';
+            }
+            document.getElementById('cartModal').style.display = 'flex';
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartBadge();
+            openCartModal(); // Re-render
+        }
+
+        function checkout() {
+            if (cart.length === 0) return;
+
+            let message = "Halo kak, saya ingin membeli:\n";
+            cart.forEach(item => {
+                message += `• ${item.name} ${item.plan} ${item.duration}\n`;
+            });
+            message += "\nApakah tersedia?";
+
+            const encodedMsg = encodeURIComponent(message);
+            const waNumber = "6289630181621";
+            const url = `https://wa.me/${waNumber}?text=${encodedMsg}`;
+            
+            window.open(url, '_blank');
+            // Clear cart after checkout (optional)
+            cart = [];
+            updateCartBadge();
+            closeModal('cartModal');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Close on click outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
